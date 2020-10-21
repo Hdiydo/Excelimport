@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.zxiat.controller.DBimportController">
+   <children>
+
+
+      <FlowPane maxHeight="60.0" maxWidth="1.7976931348623157E308" minHeight="60.0" prefHeight="60.0" style="-fx-background-color: #267fa9;" styleClass="font-title">
+         <children>
+            <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <FlowPane.margin>
+                  <Insets left="70.0" top="6.0" />
+               </FlowPane.margin>
+               <image>
+                  <Image url="@../image/logo.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="40.0" text="半结构化数据导入" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <FlowPane.margin>
+                  <Insets left="40.0" top="10.0" />
+               </FlowPane.margin>
+            </Label>
+         </children>
+      </FlowPane>
+
+
+
+
+      <VBox prefHeight="740.0" prefWidth="100.0">
+         <children>
+
+
+
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="连接数据库">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#addDb" text="新增目标数据表" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+
+
+
+            <AnchorPane prefHeight="48.0" prefWidth="1280.0">
+               <children>
+                  <TextField fx:id="ChooseFileText" layoutX="112.0" layoutY="9.0" onMouseClicked="#chooseFile" prefHeight="29.0" prefWidth="448.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="14.0" layoutY="14.0" text="选择上传文件：">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="560.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#upload" prefHeight="23.0" prefWidth="82.0" text="打开文件">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="666.0" layoutY="14.0" text="目标数据表">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="TargetComboBox" layoutX="745.0" layoutY="12.0" prefHeight="23.0" prefWidth="278.0" />
+                  <Label layoutX="1035.0" layoutY="14.0" text="Sheet选择">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="SheetComboBox" layoutX="1107.0" layoutY="12.0" prefWidth="160.0" />
+               </children>
+            </AnchorPane>
+
+
+
+
+            <HBox prefHeight="740.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="614.0" prefWidth="850.0" style="-fx-border-color: #999999;">
+                     <children>
+                        <Label prefWidth="1010.0" style="-fx-border-color: #999999;" text="导入文件数据展示表单（仅展示部分列）">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TabPane fx:id="myTabPane" prefHeight="647.0" prefWidth="386.0" tabClosingPolicy="UNAVAILABLE">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TabPane>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="400.0" style="-fx-border-color: #999999;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label prefWidth="400.0" style="-fx-border-color: #999999;" text="导入数据库配置表单">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="640.0" prefWidth="861.0">
+                           <children>
+                              <AnchorPane prefHeight="634.0" prefWidth="400.0">
+                                 <children>
+                                    <Button layoutX="300.0" layoutY="591.0" mnemonicParsing="false" onMouseClicked="#importdata" text="导入数据库">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="14.0" layoutY="146.0" text="描述选择">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="32.0" text="名称选择">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="mLabelText" layoutX="95.0" layoutY="30.0" prefHeight="23.0" prefWidth="296.0" />
+                                    <Label layoutX="14.0" layoutY="111.0" text="类别选择">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="desText" layoutX="95.0" layoutY="144.0" prefHeight="23.0" prefWidth="296.0" />
+                                    <TextField fx:id="aliasText" layoutX="95.0" layoutY="109.0" prefHeight="23.0" prefWidth="296.0" />
+                                    <Label layoutX="14.0" layoutY="71.0" text="类型">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="inputTypeComboBox" layoutX="95.0" layoutY="69.0" prefHeight="23.0" prefWidth="95.0" />
+                                    <TextField fx:id="typeText" layoutX="190.0" layoutY="69.0" prefHeight="23.0" prefWidth="200.0" />
+                                    <Label layoutX="277.0" layoutY="569.0" style="-fx-font-style: red;" text="*未配置的列名做属性" textFill="RED" />
+                                    <TableView fx:id="RowtoClaimTable" layoutX="13.0" layoutY="177.0" prefHeight="385.0" prefWidth="380.0">
+                                      <columns>
+                                        <TableColumn fx:id="OriginCol" maxWidth="190.0" minWidth="100.0" prefWidth="100.0" text="原始列名" />
+                                        <TableColumn fx:id="PropCol" maxWidth="190.0" minWidth="100.0" prefWidth="100.0" text="属性名" />
+                                          <TableColumn fx:id="QlfCol" prefWidth="180.0" text="限定配置" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
